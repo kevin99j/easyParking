@@ -3,9 +3,10 @@ package com.estudio.easyParking.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.hibernate.annotations.GenericGenerator;
+
 
 /**
  * Parqueadero
@@ -15,13 +16,10 @@ public class Parqueadero {
 
     @Id
     @Column(name = "id_parqueadero")
-    @GeneratedValue(generator="system-uuid")
-	@GenericGenerator(name="system-uuid",strategy = "uuid2")
+    @GeneratedValue(strategy = GenerationType.IDENTITY )
     private Integer idParqueadero;
-
     @Column(name = "nombre")
     private String nombre;
-
     @Column(name = "direccion")
     private String direccion;
     @Column(name = "cupo_maximo")

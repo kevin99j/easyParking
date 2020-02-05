@@ -3,9 +3,9 @@ package com.estudio.easyParking.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.hibernate.annotations.GenericGenerator;
 
 /**
  * Precio
@@ -15,8 +15,7 @@ public class Precio {
 
     @Id()
     @Column(name = "id_precio")
-    @GeneratedValue(generator="system-uuid")
-	@GenericGenerator(name="system-uuid",strategy = "uuid2")
+    @GeneratedValue(strategy = GenerationType.IDENTITY )
     private Integer idPrecio;
     @Column(name = "unidad_tiempo")
     private String unidadTiempo;

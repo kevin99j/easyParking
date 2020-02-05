@@ -26,7 +26,7 @@ public final ParqueaderoService parqueaderoService;
     }
 
 
-@PostMapping
+@PostMapping("/guardarParqueadero")
 public ResponseEntity<Parqueadero> createParqueadero(@RequestBody ParqueaderoVO parqueaderoVO) {
     
     try{
@@ -36,6 +36,7 @@ public ResponseEntity<Parqueadero> createParqueadero(@RequestBody ParqueaderoVO 
         parqueadero.setCupoMaximo(parqueaderoVO.getCupoMaximo());
         parqueadero.setDireccion(parqueaderoVO.getDireccion());
         parqueadero.setNombre(parqueaderoVO.getNombre());
+        this.parqueaderoService.create(parqueadero);
     } catch (Exception e) {
         //TODO: handle exception
         e.printStackTrace();

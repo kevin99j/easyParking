@@ -1,14 +1,15 @@
 package com.estudio.easyParking.entities;
 
 import java.util.Date;
-import java.util.List;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.hibernate.annotations.GenericGenerator;
+
 
 /**
  * Bitacora
@@ -19,10 +20,9 @@ public class Bitacora {
 
     @Id()
     @Column(name="id_bitacora")
-    @GeneratedValue(generator="system-uuid")
-	@GenericGenerator(name="system-uuid",strategy = "uuid2")
+    @GeneratedValue(strategy = GenerationType.IDENTITY )
     private Integer idBitacora;
-    @Column(name="id_bitacora")
+    @Column(name="fecha")
     private Date fecha;
    /*  @Column(name="id_parqueadero")
     private List<Parqueadero> idParqueadero; */

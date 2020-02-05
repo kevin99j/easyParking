@@ -1,5 +1,7 @@
 package com.estudio.easyParking.repositories;
 
+import java.util.List;
+
 import com.estudio.easyParking.entities.Parqueadero;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -14,10 +16,10 @@ public interface ParqueaderoRepository extends JpaRepository<Parqueadero,Integer
 
    
     /**
-     * creacion de parqueaderos
+     * busqueda de parqueaderos
      * @param parqueadero
      */
-    public void saveParqueadero(Parqueadero parqueadero);
+    public List<Parqueadero> findByCupoDisponible(Integer cupoDisponible);
   
 
 

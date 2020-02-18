@@ -1,15 +1,14 @@
 package com.estudio.easyParking.controllers;
 
 import com.estudio.easyParking.entities.Parqueadero;
-import com.estudio.easyParking.services.ParqueaderoService;
+import com.estudio.easyParking.implementations.ParqueaderoServiceImpl;
 import com.estudio.easyParking.pojos.ParqueaderoVO;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * ParqueaderoController
@@ -18,12 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
  @RestController
  @RequestMapping("/api/parqueadero")
 public class ParqueaderoController {
-
-public final ParqueaderoService parqueaderoService;
-
-    public ParqueaderoController(ParqueaderoService parqueaderoService) {
-        this.parqueaderoService = parqueaderoService;
-    }
+     @Autowired
+  private ParqueaderoServiceImpl parqueaderoServiceImpl;
 
 
 @PostMapping("/guardarParqueadero")
@@ -36,7 +31,7 @@ public ResponseEntity<Parqueadero> createParqueadero(@RequestBody ParqueaderoVO 
         parqueadero.setCupoMaximo(parqueaderoVO.getCupoMaximo());
         parqueadero.setDireccion(parqueaderoVO.getDireccion());
         parqueadero.setNombre(parqueaderoVO.getNombre());
-        this.parqueaderoService.create(parqueadero);
+        this.parqueaderoServiceImpl.create(parqueadero);
     } catch (Exception e) {
         //TODO: handle exception
         e.printStackTrace();
@@ -45,6 +40,15 @@ public ResponseEntity<Parqueadero> createParqueadero(@RequestBody ParqueaderoVO 
 return new ResponseEntity<>(HttpStatus.CREATED);
 
 }
+
+
+@GetMapping("/listarParqueaderos")
+    public ResponseEntity<List<Parqueadero>> listarParqueaderos(){
+
+        return  ResponseEntity.ok(this.parqueaderoServiceImpl.findAll());
+}
+
+
 
 
     

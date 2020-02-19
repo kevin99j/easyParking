@@ -16,5 +16,5 @@ public interface IParqueaderoService  {
 
     public List<Parqueadero> findAll();
 
-
+    public Parqueadero findParqueadero(String nombre, String direccion);
 }

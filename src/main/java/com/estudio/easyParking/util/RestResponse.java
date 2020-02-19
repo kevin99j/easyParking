@@ -1,6 +1,7 @@
 package com.estudio.easyParking.util;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
@@ -15,8 +16,7 @@ public class RestResponse {
 	private List<Object> list;
 	
 	
-	public RestResponse() {
-		
+	public RestResponse() { 
 	}
 	public RestResponse(int codigoRespuesta, String mensaje) {
 		super();

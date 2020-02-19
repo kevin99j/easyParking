@@ -5,12 +5,20 @@ package com.estudio.easyParking.pojos;
  */
 public class ParqueaderoVO {
 
-  
     private Integer idParqueadero;
     private String nombre;
     private String direccion;
     private Integer cupoMaximo;
     private Integer cupoDisponible;
+
+    public ParqueaderoVO() {
+    }
+
+    public ParqueaderoVO(String nombre, Integer cupoMaximo, Integer cupoDisponible) {
+        this.nombre = nombre;
+        this.cupoDisponible = cupoDisponible;
+        this.cupoMaximo = cupoMaximo;
+    }
 
     public Integer getIdParqueadero() {
         return idParqueadero;
@@ -52,5 +60,4 @@ public class ParqueaderoVO {
         this.cupoDisponible = cupoDisponible;
     }
 
-    
 }

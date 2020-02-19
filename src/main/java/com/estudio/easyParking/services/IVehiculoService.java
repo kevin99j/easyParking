@@ -14,4 +14,6 @@ public interface IVehiculoService {
 
     List<VehiculoVO> findAll();
 
+    String create(Vehiculo veh);
+
 }

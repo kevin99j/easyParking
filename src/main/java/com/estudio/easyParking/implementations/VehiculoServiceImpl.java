@@ -68,5 +68,18 @@ public class VehiculoServiceImpl implements IVehiculoService {
         return vehiculos;
     }
 
+    @Override
+    public String create(Vehiculo veh) {
+         // TODO Auto-generated method stub
+         try { 
+            repository.save(veh);
+            return "OK";
+        } catch (Exception e) {
+            // TODO: handle exception
+            System.out.println(e);
+            return "Fallo";
+        }
+    }
+
 
 }

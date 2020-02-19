@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class UsuarioServiceImpl  implements IUsuariosService {
+public class UsuarioServiceImpl implements IUsuariosService {
     @Autowired
     private UsuarioRepository repository;
 
@@ -29,11 +29,25 @@ public class UsuarioServiceImpl  implements IUsuariosService {
                 user.getSuscripciones().addAll(usuario.getSuscripciones());
                 usuarios.add(user);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
 
-
         return usuarios;
+    }
+
+    @Override
+    public String create(Usuario user) { 
+        // TODO Auto-generated method stub
+        try { 
+            repository.save(user);
+            return "OK";
+        } catch (Exception e) {
+            // TODO: handle exception
+            System.out.println(e);
+            return "Fallo";
+        }
+
+        
     }
 }

@@ -23,4 +23,12 @@ public class ParqueaderoServiceImpl implements IParqueaderoService {
     public List<Parqueadero> findAll() {
         return this.repository.findAll();
     }
+
+    @Override
+    public Parqueadero findParqueadero(String nombre, String direccion) {
+        // TODO Auto-generated method stub
+        return this.repository.findByNombreAndDireccion(nombre, direccion);
+    }
+
+     
 }

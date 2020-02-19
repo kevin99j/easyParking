@@ -21,7 +21,7 @@ public interface ParqueaderoRepository extends JpaRepository<Parqueadero,Integer
      */
     public List<Parqueadero> findByCupoDisponible(Integer cupoDisponible);
   
-
+    public Parqueadero findByNombreAndDireccion(String nombre,String direccion);
 
 
 }
